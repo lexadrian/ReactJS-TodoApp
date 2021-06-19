@@ -46,11 +46,17 @@ const Tasklist = ({ index, id, title, status }) => {
         >
           <h4>{title}</h4>
           <hr className="m-0" />
-          <label>Status: </label>
+          <label className="text-muted">Status: </label>
           <select
+            className={
+              status == "Open"
+                ? classes.openStatus + " " + classes.option
+                : status == "In Progress"
+                ? classes.progressStatus + " " + classes.option
+                : classes.doneStatus + " " + classes.option
+            }
             ref={statusValue}
             onChange={(e) => statusHandler(id)}
-            className="form-select"
             aria-label="Default select example"
           >
             <option defaultValue>{status}</option>
@@ -58,7 +64,9 @@ const Tasklist = ({ index, id, title, status }) => {
             <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
           </select>
-          <button onClick={(e) => deleteHanlder(id)}>Delete</button>
+          <div className="">
+            <button onClick={(e) => deleteHanlder(id)}>Delete</button>
+          </div>
         </div>
       </div>
     </>

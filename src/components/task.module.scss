@@ -15,4 +15,19 @@
     font-family: $header-font;
     color: #ff0000;
   }
+  .filter {
+    background: transparent;
+    border: 1px solid #c0bfbf;
+    padding: 5px 10px;
+    margin-top: 15px;
+    width: 120px;
+    &:active {
+      background: $primary-color;
+      color: #fff;
+    }
+  }
+  .active {
+    background: $primary-color;
+    color: #fff;
+  }
 }

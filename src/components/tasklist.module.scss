@@ -10,6 +10,15 @@
     font-size: 15pt;
     margin: 0;
   }
+  .option {
+    border-radius: 5px;
+    padding: 0 5px;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: #fff;
+    font-weight: bold;
+  }
   .open {
     border-left: 5px solid #ee1616;
   }
@@ -18,5 +27,14 @@
   }
   .done {
     border-left: 5px solid #4874ec;
+  }
+  .openStatus {
+    background: #ee1616;
+  }
+  .progressStatus {
+    background: #1dd469;
+  }
+  .doneStatus {
+    background: #4874ec;
   }
 }
