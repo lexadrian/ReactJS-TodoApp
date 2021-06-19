@@ -21,14 +21,14 @@ const Task = (props) => {
     <>
       <section className={classes.tasklistSection}>
         <h2>Task List</h2>
-        {getTask.length == 0 && (
+        {getTask.length === 0 && (
           <h1 className={classes.noTask}>No Task Available</h1>
         )}
         {getTask
           .sort((a, b) => (a.itemM > b.itemM ? 1 : -1))
           .map((task, index) => (
             <Tasklist
-              key={task.index}
+              index={task.index}
               id={task.id}
               title={task.title}
               status={task.status}

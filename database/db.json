@@ -1,9 +1,14 @@
 {
   "tasks": [
     {
-      "title": "Create todo app",
-      "status": "Open",
+      "title": "Create todo Task",
+      "status": "Done",
       "id": 1
+    },
+    {
+      "title": "awit",
+      "status": "In Progress",
+      "id": 2
     }
   ]
 }
