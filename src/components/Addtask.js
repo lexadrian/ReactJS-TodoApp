@@ -11,10 +11,14 @@ const Addtask = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: taskInput, status: "Open" }),
     };
-    fetch(process.env.REACT_APP_API_KEY, requestOptions).then((res) => {
-      console.log(res.status);
-      task.current.value = "";
-    });
+   if(taskInput == "") {
+    alert('Required Value')
+   } else {
+     fetch(process.env.REACT_APP_API_KEY, requestOptions).then((res) => {
+       console.log(res.status);
+       task.current.value = "";
+     });
+   }
   };
   return (
     <>

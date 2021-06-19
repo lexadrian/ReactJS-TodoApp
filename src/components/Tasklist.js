@@ -2,6 +2,7 @@ import classes from "./tasklist.module.scss";
 import { useRef } from "react";
 const Tasklist = ({ index, id, title, status }) => {
   const statusValue = useRef();
+  // Change status
   const statusHandler = (id) => {
     console.log(statusValue.current.value);
     const requestOptions = {
@@ -13,6 +14,19 @@ const Tasklist = ({ index, id, title, status }) => {
       (response) => {
         response.json();
         statusValue.current.value = status;
+      }
+    );
+  };
+  // Delete Task
+  const deleteHanlder = (id) => {
+    const requestOptions = {
+      method: "Delete",
+      headers: { "Content-Type": "application/json" },
+    };
+    fetch(process.env.REACT_APP_API_KEY + "/" + id, requestOptions).then(
+      (response) => {
+        response.json();
+        alert("deleted");
       }
     );
   };
@@ -44,6 +58,7 @@ const Tasklist = ({ index, id, title, status }) => {
             <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
           </select>
+          <button onClick={(e) => deleteHanlder(id)}>Delete</button>
         </div>
       </div>
     </>
