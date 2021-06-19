@@ -10,14 +10,26 @@ const Tasklist = ({ index, id, title, status }) => {
       body: JSON.stringify({ status: statusValue.current.value }),
     };
     fetch(process.env.REACT_APP_API_KEY + "/" + id, requestOptions).then(
-      (response) => response.json()
+      (response) => {
+        response.json();
+        statusValue.current.value = status;
+      }
     );
   };
 
   return (
     <>
       <div className={classes.card}>
-        <div className={classes.cardContent} key={index}>
+        <div
+          className={
+            status == "Open"
+              ? classes.open + " " + classes.cardContent
+              : status == "In Progress"
+              ? classes.progress + " " + classes.cardContent
+              : classes.done + " " + classes.cardContent
+          }
+          key={index}
+        >
           <h4>{title}</h4>
           <hr className="m-0" />
           <label>Status: </label>
