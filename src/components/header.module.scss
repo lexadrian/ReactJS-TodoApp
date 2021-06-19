@@ -1,0 +1,12 @@
+@import "./util/var";
+header {
+  width: 100%;
+  display: flex;
+  background-color: #3d3fb1;
+  padding: 15px 25px;
+  h1 {
+    font-size: 15pt;
+    margin: 0;
+    font-family: $body-font;
+  }
+}

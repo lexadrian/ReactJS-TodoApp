@@ -1,0 +1,47 @@
+@import "./util/var";
+.addtaskSection {
+  width: 100%;
+  float: left;
+  padding: 25px;
+  h1 {
+    font-family: $header-font;
+    font-size: 25pt;
+  }
+  input {
+    width: 100%;
+    padding: 5px;
+    border: 0;
+    border-bottom: 2px solid $primary-color;
+    margin-top: 10px;
+    transition: 0.4s ease;
+    &:focus {
+      outline: none;
+      padding: 5px 5px 5px 10px;
+      border-left: 3px solid $primary-color;
+      border-bottom: 1px solid $primary-color;
+    }
+  }
+  button {
+    padding: 5px 10px;
+    margin-top: 5px;
+    border: 0;
+    border-radius: 2px;
+    background: $primary-color;
+    transition: 0.4s ease;
+    color: #fff;
+    &:hover {
+      background-color: darken($primary-color, 5%);
+      box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.51);
+      -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.51);
+      -moz-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.51);
+    }
+    &:active {
+      background: radial-gradient(
+        circle,
+        rgba(2, 0, 36, 0.7992239131980917) 0%,
+        rgba(61, 63, 177, 1) 47%,
+        rgba(61, 63, 177, 1) 99%
+      );
+    }
+  }
+}
