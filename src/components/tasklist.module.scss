@@ -1,0 +1,13 @@
+@import "./util/var";
+.card {
+  margin-top: 10px;
+  .cardContent {
+    padding: 10px 15px;
+    border: 1px solid red;
+  }
+  h4 {
+    font-family: $header-font;
+    font-size: 15pt;
+    margin: 0;
+  }
+}
