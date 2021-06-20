@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 const Task = (props) => {
   const [getTask, setTask] = useState([""]);
   const [filter, setFilter] = useState("All");
+  const [isSelect, setSelect] = useState(false);
+  const [isActive, setActive] = useState(0);
   const buttonArr = ["All", "Open", "In Progress", "Done"];
   const apiURL = process.env.REACT_APP_API_KEY;
   const data = async () => {
@@ -19,18 +21,25 @@ const Task = (props) => {
     data();
   }, [getTask]);
   // filter
-  const filterHanlder = (res) => {
+  const filterHanlder = (res, index) => {
     setFilter(res);
+    setSelect(true);
+    setActive(index);
   };
   return (
     <>
       <section className={classes.tasklistSection}>
-        <h2>Task List</h2>
+        <h2>Task List : {filter}</h2>
         <div className="btn-group">
-          {buttonArr.map((res) => (
+          {buttonArr.map((res, index) => (
             <button
-              className={classes.filter}
-              onClick={() => filterHanlder(res)}
+              key={index}
+              className={
+                index == isActive
+                  ? classes.filter + " " + classes.active
+                  : classes.filter
+              }
+              onClick={() => filterHanlder(res, index)}
             >
               {res}
             </button>

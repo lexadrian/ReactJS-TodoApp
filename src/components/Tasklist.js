@@ -26,7 +26,6 @@ const Tasklist = ({ index, id, title, status }) => {
     fetch(process.env.REACT_APP_API_KEY + "/" + id, requestOptions).then(
       (response) => {
         response.json();
-        alert("deleted");
       }
     );
   };
@@ -44,7 +43,21 @@ const Tasklist = ({ index, id, title, status }) => {
           }
           key={index}
         >
-          <h4>{title}</h4>
+          <div className="row">
+            <div className="col-lg-6">
+              <h4>{title}</h4>
+            </div>
+            <div className="col-lg-6">
+              <div className=" text-end">
+                <button
+                  className={classes.btnDelete}
+                  onClick={(e) => deleteHanlder(id)}
+                >
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
           <hr className="m-0" />
           <label className="text-muted">Status: </label>
           <select
@@ -64,9 +77,6 @@ const Tasklist = ({ index, id, title, status }) => {
             <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
           </select>
-          <div className="">
-            <button onClick={(e) => deleteHanlder(id)}>Delete</button>
-          </div>
         </div>
       </div>
     </>

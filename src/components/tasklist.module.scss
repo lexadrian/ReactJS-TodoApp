@@ -15,7 +15,7 @@
     padding: 0 5px;
     text-align: center;
     margin-left: 5px;
-    margin-top: 5px;
+    margin-top: 15px;
     color: #fff;
     font-weight: bold;
   }
@@ -36,5 +36,16 @@
   }
   .doneStatus {
     background: #4874ec;
+  }
+  .btnDelete {
+    border: 0;
+    background: none;
+    font-size: 15pt;
+    color: #ee1616;
+    margin-top: -15px;
+
+    &:hover {
+      color: #d41010;
+    }
   }
 }
